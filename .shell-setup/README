@@ -1,0 +1,20 @@
+### SETUP
+-----
+
+Run the following commands to setup the bare git repo, this puts all the git files in the top level and is used when
+edits are not being made in the actual repo folder.
+
+Next an alias is created so you can call 'config status' instead of git status.
+
+This is used to set the showUntrackedFiles to no so files we don't care about won't show in the status command.
+
+Then it is pushed into the zshrc file for global use.
+
+[code]
+git init --bare $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.zshrc
+
+### REPO
+The repo name is shell-setup
